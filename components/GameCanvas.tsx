@@ -26,11 +26,13 @@ export default function GameCanvas() {
     const enemies = state.enemies;
     let gameOver = state.gameOver;
 
-    // Input state
+    // -------------------------
+    // INPUT
+    // -------------------------
     const { keys, keysPressed, resetKeysPressed } = createInputState();
-    // setup input
     const cleanupInput = setupKeyboardInput(keys, keysPressed);
 
+    // spawn enemies every second
     setInterval(() => {
       if (!gameOver) {
         spawnEnemy(canvas, enemies);
