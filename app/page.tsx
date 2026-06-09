@@ -7,7 +7,13 @@ export default function Home() {
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="w-full max-w-2xl p-6">
+      <div className="w-full max-w-6xl p-6">
+        <h2>{siteConfig.name}</h2>
+        <p> Text description here</p>
+        <Image src="/private/Shinano2.png" alt="Placeholder" width={400} height={100}></Image>
+
+      </div>
+      <div className="w-full max-w-6xl p-6">
         
         <div className="text-center mb-10">
           <h1 className="text-4xl font-bold">{siteConfig.name}</h1>
@@ -36,7 +42,7 @@ export default function Home() {
 
         <section className="mt-8">
           <h2 className="text-2xl font-semibold mb-2">Projects</h2>
-          <p className="text-zinc-700 dark:text-zinc-300">Yes</p>
+          <p className="text-test">Yes</p>
         </section>
 
         {Array.from({ length: 20 }).map((_, i) => (
@@ -49,8 +55,7 @@ export default function Home() {
             </p>
           </section>
         ))}
-
-      </main>
+      </div>
     </div>
   );
 }

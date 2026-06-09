@@ -6,6 +6,8 @@ import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 import Nav from "@/components/layout/nav";
 
+import { ThemeProvider } from "next-themes";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -30,19 +32,23 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        <Header />
-        <Nav />
-        <main>
-          {children}
-        </main>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+        >
+          <Header />
+          <Nav />
+          <main>
+            {children}
+          </main>
 
-        <Footer />
-
-      </body>
-
-      
+          <Footer />
+        </ThemeProvider>
+      </body>  
     </html>
   );
 }
